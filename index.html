@@ -3,13 +3,13 @@
 <head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Frame</title>
+    <title>Tony Hawk</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
-    <h1>Photo Frame1</h1>
+    <h1>Tony Hawk</h1>
     <div class="frame-container">
       <div class="frame circle"><img src="images/tony.jpg"></div>
       <div class="frame rectangle"><img src="images/tony2.jpg"></div>
@@ -18,6 +18,13 @@
       <div class="frame square-small"><img src="images/tony5.jpg"></div>
       <div class="frame rectangle"><img src="images/tony6.jpg"></div>
       <div class="frame oval"><img src="images/tony7.jpg"></div>
+    </div>
+    <button class="credits-button" onclick="showCredits()">Credits</button>
+    <div id="credits-modal" class="credits-modal">
+      <div class="credits-content">
+        <span class="close" onclick="hideCredits()">&times;</span>
+        <p>Wwebsite by Hunter</p>
+      </div>
     </div>
   </div>
 </body>
