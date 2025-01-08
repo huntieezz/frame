@@ -14,21 +14,28 @@ h1 {
     text-align: center; /* Center the heading text */
     color: white; /* Set the heading text color */
 }
+
 h2 {
     color: white; /* Set the subheading text color */
     text-align: center; /* Center the subheading text */
 }
+
 h3 {
     text-align: center; /* Center the subheading text */
     color: rgb(0, 17, 255); /* Set the subheading text color */
 }
+
 p {
     color: white; /* Set the paragraph text color */
     text-align: center; /* Center the paragraph text */
 }
+
 .container {
     border: 5px solid white;   
     position: relative;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .frame-container {
@@ -36,10 +43,11 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    width: 700px; /* Set the width of the container to 700px */
+    width: 100%;
     max-width: 800px;
     padding: 20px;
     margin: 20px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .frame {
@@ -66,73 +74,59 @@ p {
     clip-path: circle(50%);
 }
 
-.frame.square-small {
-    width: 200px; /* Adjust the width as needed */
-    height: 200px; /* Adjust the height as needed */
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .frame-container {
+        width: 100%;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .frame {
+        flex: 1 1 calc(50% - 20px); /* Adjust the width of each frame */
+        max-width: calc(50% - 20px); /* Ensure frames don't exceed the container width */
+    }
+
+    .frame.circle,
+    .frame.square-small,
+    .frame.square-big,
+    .frame.rectangle,
+    .frame.oval {
+        width: 100%; /* Make frames full width */
+        height: auto; /* Adjust height automatically */
+    }
 }
 
-.frame.square-big {
-    flex: none; /* Override the flex property */
-    width: 300px; /* Adjust the width as needed */
-    height: 300px; /* Adjust the height as needed */
-}
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        margin: 10px;
+    }
 
-.frame.rectangle {
-    width: 300px; /* Adjust the width as needed */
-    height: 150px; /* Adjust the height as needed */
-}
+    .frame-container {
+        width: 100%;
+        padding: 5px;
+        margin: 5px;
+    }
 
-.frame.oval {
-    border-radius: 60% / 35%;
-    width: 200px;
-    height: 200px;
-    clip-path: ellipse(50% 35%);
-}
+    .frame {
+        flex: 1 1 100%; /* Make each frame take full width */
+        max-width: 100%; /* Ensure frames don't exceed the container width */
+    }
 
-.frame.enlarged {
-    transform: scale(1.5);
-    z-index: 10;
-}
+    .frame.circle,
+    .frame.square-small,
+    .frame.square-big,
+    .frame.rectangle,
+    .frame.oval {
+        width: 100%; /* Make frames full width */
+        height: auto; /* Adjust height automatically */
+    }
 
-.credits-button {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.credits-modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
-
-.credits-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-}
-
-.close {
-    position: absolute;
-    top: 7px;
-    right: -5px;
-    color: white;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
+    .credits-button {
+        bottom: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
 }
