@@ -20,6 +20,33 @@ h1 {
     position: relative;
 }
 
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.tab-link.active {
+    border-bottom: 2px solid black;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
 .frame-container {
     display: flex;
     flex-wrap: wrap;
