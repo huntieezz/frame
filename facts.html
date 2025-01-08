@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facts about Famous Skaters</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Facts about Famous Skaters</h1>
+    <nav>
+      <button id="tony-page" onclick="location.href='tony-facts.html'">Tony</button>
+      <button id="heitor-page" onclick="location.href='heitor.html'">Heitor</button>
+      <button id="facts-page" onclick="location.href='facts.html'">Facts</button>
+    </nav>
+    <div class="facts-content">
+      <h2>Tony Hawk</h2>
+      <p>Tony Hawk, nicknamed "The Birdman," is an American professional skateboarder, entrepreneur, and owner of the skateboard company Birdhouse. Hawk is well known for completing the first documented "900" skateboarding trick and for his licensed video game titles, published by Activision.</p>
+      
+      <h2>Heitor da Silva</h2>
+      <p>Heitor da Silva is a professional skateboarder known for his unique style and technical skills. He has gained recognition in the skateboarding community for his innovative tricks and smooth execution. Heitor continues to push the boundaries of skateboarding and inspire new generations of skaters.</p>
+    </div>
+    <button class="credits-button" onclick="showCredits()">Credits</button>
+    <div id="credits-modal" class="credits-modal">
+      <div class="credits-content">
+        <span class="close" onclick="hideCredits()">&times;</span>
+        <p>Website by Hunter</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('facts-page').style.fontWeight = 'bold';
+      document.getElementById('facts-page').style.color = 'blue';
+    });
+  </script>
+  <script src="script.js" defer></script>
+</body>
+</html>
