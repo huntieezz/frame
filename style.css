@@ -2,20 +2,26 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: rgb(150, 75, 0);
     display: flex;
+    flex-direction: column;
     justify-content: center;    
     align-items: center; /* Center the container vertically */
     min-height: 100vh;
     margin: 0;
 }
 
+h1 {
+    margin-bottom: 20px; /* Add some space below the heading */
+    text-align: center; /* Center the heading text */
+    color: white; /* Set the heading text color */
+}
+
 .frame-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     width: 500px; /* Set the width of the container to 500px */
     max-width: 800px;
-    justify-content: center; /* Center the frames horizontally */
 }
 
 .frame {
@@ -25,6 +31,8 @@ body {
     transition: transform 0.3s ease-in-out;
     box-sizing: border-box; /* Ensure border is included in the element's total width and height */
     border: 5px solid white; /* Add border around each frame */
+    flex: 1 1 calc(33.333% - 20px); /* Adjust the width of each frame */
+    max-width: calc(33.333% - 20px); /* Ensure frames don't exceed the container width */
 }
 
 .frame img {
@@ -37,8 +45,6 @@ body {
 
 .frame.circle {
     border-radius: 50%;
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
     width: 200px;
     height: 200px;
 }
@@ -46,33 +52,20 @@ body {
 .frame.square-small {
     width: 200px; /* Adjust the width as needed */
     height: 200px; /* Adjust the height as needed */
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-}
-
-.frame.square-small:nth-child(2) {
-    grid-column: 3 / 4;
-    grid-row: 3 / 4;
 }
 
 .frame.square-big {
     width: 300px; /* Adjust the width as needed */
     height: 300px; /* Adjust the height as needed */
-    grid-column: 1 / 2;
-    grid-row: 2 / 4;
 }
 
 .frame.rectangle {
     width: 300px; /* Adjust the width as needed */
     height: 150px; /* Adjust the height as needed */
-    grid-column: 1 / 2;
-    grid-row: 4 / 5;
 }
 
 .frame.oval {
     border-radius: 60% / 35%;
-    grid-column: 3 / 4;
-    grid-row: 4 / 5;
     width: 200px;
     height: 200px;
 }
