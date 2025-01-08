@@ -34,8 +34,17 @@
     </div>
   </div>
   <script>
-    document.getElementById('tony-page').style.fontWeight = 'bold';
-    document.getElementById('tony-page').style.color = 'blue';
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('tony-page').classList.add('active');
+    });
+
+    function showCredits() {
+      document.getElementById('credits-modal').style.display = 'block';
+    }
+
+    function hideCredits() {
+      document.getElementById('credits-modal').style.display = 'none';
+    }
   </script>
 </body>
 </html>

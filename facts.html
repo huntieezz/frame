@@ -31,9 +31,16 @@
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById('facts-page').style.fontWeight = 'bold';
-      document.getElementById('facts-page').style.color = 'blue';
+      document.getElementById('facts-page').classList.add('active');
     });
+
+    function showCredits() {
+      document.getElementById('credits-modal').style.display = 'block';
+    }
+
+    function hideCredits() {
+      document.getElementById('credits-modal').style.display = 'none';
+    }
   </script>
   <script src="script.js" defer></script>
 </body>
