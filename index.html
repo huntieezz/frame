@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Famous Skaters</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Famous Skaters</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Famous Skaters</h1>
-    <nav>
-      <button id="tony-page" onclick="location.href='index.html'">Tony</button>
-      <button id="heitor-page" onclick="location.href='heitor.html'">Heitor</button>
-      <button id="facts-page" onclick="location.href='facts.html'">Facts</button>
-    </nav>
-    <h3>Tony Hawk</h3>
-    <div class="frame-container">
-      <div class="frame circle"><img src="images/tony.jpg"></div>
-      <div class="frame rectangle"><img src="images/tony2.jpg"></div>
-      <div class="frame square-big"><img src="images/tony3.jpg"></div>
-      <div class="frame square-small"><img src="images/tony4.jpg"></div>
-      <div class="frame square-small"><img src="images/tony5.jpg"></div>
-      <div class="frame rectangle"><img src="images/tony6.jpg"></div>
-      <div class="frame oval"><img src="images/tony7.jpg"></div>
-    </div>
-    <button class="credits-button" onclick="showCredits()">Credits</button>
-    <div id="credits-modal" class="credits-modal">
-      <div class="credits-content">
-        <span class="close" onclick="hideCredits()">&times;</span>
-        <p>Website by Hunter</p>
+  <div id="main-content" style="display: none;">
+    <div class="container">
+      <h1>Famous Skaters</h1>
+      <nav>
+        <button id="tony-page" onclick="location.href='index.html'">Tony</button>
+        <button id="heitor-page" onclick="location.href='heitor.html'">Heitor</button>
+        <button id="facts-page" onclick="location.href='facts.html'">Facts</button>
+      </nav>
+      <h3>Tony Hawk</h3>
+      <div class="frame-container">
+        <div class="frame circle"><img src="images/tony.jpg"></div>
+        <div class="frame rectangle"><img src="images/tony2.jpg"></div>
+        <div class="frame square-big"><img src="images/tony3.jpg"></div>
+        <div class="frame square-small"><img src="images/tony4.jpg"></div>
+        <div class="frame square-small"><img src="images/tony5.jpg"></div>
+        <div class="frame rectangle"><img src="images/tony6.jpg"></div>
+        <div class="frame oval"><img src="images/tony7.jpg"></div>
+      </div>
+      <div class="button-container">
+        <button class="credits-button" onclick="showCredits()">Credits</button>
+        <button class="play-music-button" id="music-button" onclick="toggleAudio()">Play Music</button>
+      </div>
+      <div id="credits-modal" class="credits-modal">
+        <div class="credits-content">
+          <span class="close" onclick="hideCredits()">&times;</span>
+          <p>Website by Hunter</p>
+        </div>
       </div>
     </div>
+    <div class="background-music">
+      <audio id="background-audio" src="https://files.catbox.moe/1a2hsx.mp3" loop></audio>
+    </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById('tony-page').classList.add('active');
-    });
-
-    function showCredits() {
-      document.getElementById('credits-modal').style.display = 'block';
-    }
-
-    function hideCredits() {
-      document.getElementById('credits-modal').style.display = 'none';
-    }
-  </script>
+  <div id="captcha-modal" class="captcha-modal">
+    <div class="captcha-content">
+      <p>Please enter the following CAPTCHA to proceed:</p>
+      <p id="captcha-text"></p>
+      <input type="text" id="captcha-input" placeholder="Enter CAPTCHA">
+      <button onclick="verifyCaptcha()">Submit</button>
+    </div>
+  </div>
 </body>
 </html>

@@ -5,33 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facts about Famous Skaters</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Facts about Famous Skaters</h1>
-    <nav>
-      <button id="tony-page" onclick="location.href='index.html'">Tony</button>
-      <button id="heitor-page" onclick="location.href='heitor.html'">Heitor</button>
-      <button id="facts-page" onclick="location.href='facts.html'">Facts</button>
-    </nav>
-    <div class="facts-content">
-      <h2>Tony Hawk</h2>
-      <p>Tony Hawk, nicknamed "The Birdman," is an American professional skateboarder, entrepreneur, and owner of the skateboard company Birdhouse. Hawk is well known for completing the first documented "900" skateboarding trick and for his licensed video game titles, published by Activision.</p>
-      
-      <h2>Heitor da Silva</h2>
-      <p>Heitor da Silva is a professional skateboarder known for his unique style and technical skills. He has gained recognition in the skateboarding community for his innovative tricks and smooth execution. Heitor continues to push the boundaries of skateboarding and inspire new generations of skaters.</p>
-    </div>
-    <button class="credits-button" onclick="showCredits()">Credits</button>
-    <div id="credits-modal" class="credits-modal">
-      <div class="credits-content">
-        <span class="close" onclick="hideCredits()">&times;</span>
-        <p>Website by Hunter</p>
+  <div id="main-content" style="display: none;">
+    <div class="container">
+      <h1>Facts about Famous Skaters</h1>
+      <nav>
+        <button id="tony-page" onclick="location.href='index.html'">Tony</button>
+        <button id="heitor-page" onclick="location.href='heitor.html'">Heitor</button>
+        <button id="facts-page" onclick="location.href='facts.html'">Facts</button>
+      </nav>
+      <div class="facts-content">
+        <h2>Tony Hawk</h2>
+        <p>Tony Hawk, nicknamed "The Birdman," is an American professional skateboarder, entrepreneur, and owner of the skateboard company Birdhouse. Hawk is well known for completing the first documented "900" skateboarding trick and for his licensed video game titles, published by Activision.</p>
+        
+        <h2>Heitor da Silva</h2>
+        <p>Heitor da Silva is a professional skateboarder known for his unique style and technical skills. He has gained recognition in the skateboarding community for his innovative tricks and smooth execution. Heitor continues to push the boundaries of skateboarding and inspire new generations of skaters.</p>
       </div>
+      <div class="button-container">
+        <button class="credits-button" onclick="showCredits()">Credits</button>
+        <button class="play-music-button" id="music-button" onclick="toggleAudio()">Play Music</button>
+      </div>
+      <div id="credits-modal" class="credits-modal">
+        <div class="credits-content">
+          <span class="close" onclick="hideCredits()">&times;</span>
+          <p>Website by Hunter</p>
+        </div>
+      </div>
+    </div>
+    <div class="background-music">
+      <audio id="background-audio" src="https://files.catbox.moe/1a2hsx.mp3" loop></audio>
+    </div>
+  </div>
+  <div id="captcha-modal" class="captcha-modal">
+    <div class="captcha-content">
+      <p>Please enter the following CAPTCHA to proceed:</p>
+      <p id="captcha-text"></p>
+      <input type="text" id="captcha-input" placeholder="Enter CAPTCHA">
+      <button onclick="verifyCaptcha()">Submit</button>
     </div>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       document.getElementById('facts-page').classList.add('active');
+      if (localStorage.getItem('captchaVerified') === 'true') {
+        document.getElementById('main-content').style.display = 'block';
+      } else {
+        generateCaptcha();
+      }
     });
 
     function showCredits() {
@@ -41,7 +63,37 @@
     function hideCredits() {
       document.getElementById('credits-modal').style.display = 'none';
     }
+
+    function toggleAudio() {
+      var audio = document.getElementById('background-audio');
+      var button = document.getElementById('music-button');
+      if (audio.paused) {
+        audio.play();
+        button.textContent = 'Stop Music';
+      } else {
+        audio.pause();
+        button.textContent = 'Play Music';
+      }
+    }
+
+    function generateCaptcha() {
+      var captchaText = Math.random().toString(36).substring(2, 8);
+      document.getElementById('captcha-text').textContent = captchaText;
+      document.getElementById('captcha-modal').style.display = 'block';
+    }
+
+    function verifyCaptcha() {
+      var input = document.getElementById('captcha-input').value;
+      var captchaText = document.getElementById('captcha-text').textContent;
+      if (input === captchaText) {
+        document.getElementById('captcha-modal').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        localStorage.setItem('captchaVerified', 'true');
+      } else {
+        alert('Incorrect CAPTCHA. Please try again.');
+        generateCaptcha();
+      }
+    }
   </script>
-  <script src="script.js" defer></script>
 </body>
 </html>

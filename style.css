@@ -95,25 +95,29 @@ nav button.active {
     text-decoration: underline;
 }
 
-.credits-button {
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.credits-button, .play-music-button {
     background-color: transparent;
     border: 2px solid white;
     color: white;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.credits-button:hover {
+.credits-button:hover, .play-music-button:hover {
     background-color: white;
     color: rgb(150, 75, 0);
 }
 
-.credits-modal {
+.credits-modal, .captcha-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 100; /* Sit on top */
@@ -126,7 +130,7 @@ nav button.active {
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
-.credits-content {
+.credits-content, .captcha-content {
     position: absolute;
     top: 50%;
     left: 50%;
