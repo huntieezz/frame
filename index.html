@@ -8,11 +8,11 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div id="main-content" style="display: none;">
+  <div id="main-content">
     <div class="container">
       <h1>Famous Skaters</h1>
       <nav>
-        <button id="tony-page" onclick="location.href='index.html'">Tony</button>
+        <button id="tony-page" onclick="location.h  ref='index.html'">Tony</button>
         <button id="heitor-page" onclick="location.href='heitor.html'">Heitor</button>
         <button id="facts-page" onclick="location.href='facts.html'">Facts</button>
       </nav>
@@ -39,14 +39,6 @@
     </div>
     <div class="background-music">
       <audio id="background-audio" src="https://files.catbox.moe/1a2hsx.mp3" loop></audio>
-    </div>
-  </div>
-  <div id="captcha-modal" class="captcha-modal">
-    <div class="captcha-content">
-      <p>Please enter the following CAPTCHA to proceed:</p>
-      <p id="captcha-text"></p>
-      <input type="text" id="captcha-input" placeholder="Enter CAPTCHA">
-      <button onclick="verifyCaptcha()">Submit</button>
     </div>
   </div>
 </body>
